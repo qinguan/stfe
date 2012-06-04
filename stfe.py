@@ -116,9 +116,9 @@ def get_email_param():
         sys.exit(1)
     
     email_param = {}
-    email_param['From']        = opts.sender       #'gjx0619@126.com'
-    email_param['To']          = ';'.join(opts.recipient)    #'gjx0619@126.com'
-    email_param['Passwd']      = opts.passwd       #'qinguan_sky'
+    email_param['From']        = opts.sender
+    email_param['To']          = ';'.join(opts.recipient)
+    email_param['Passwd']      = opts.passwd
     email_param['Subject']     = opts.subject if opts.subject else None #'Test'
     email_param['ContextFile'] = opts.context if opts.context else None #'stfe.py'
     email_param['Attachment']  = opts.attachment if opts.attachment else None  #os.getcwd()
