@@ -126,17 +126,22 @@ def get_email_param():
 
 def send_email(email_param):
     send_msg = build_email(email_param)
-    smtp = smtplib.SMTP()
-    smtp.connect('smtp.'+email_param['From'].split('@')[1]+':25')
-    #smtp.connect(':'.join(['smtp.'+send_msg['From'].split('@')[1],'25']))
-    smtp.login(email_param['From'],email_param['Passwd'])
-    smtp.sendmail(email_param['From'],email_param['To'],send_msg)
-    smtp.quit()
+    try:
+        smtp = smtplib.SMTP()
+        smtp.connect('smtp.'+email_param['From'].split('@')[1]+':25')
+        #smtp.connect(':'.join(['smtp.'+send_msg['From'].split('@')[1],'25']))
+        smtp.login(email_param['From'],email_param['Passwd'])
+        smtp.sendmail(email_param['From'],email_param['To'],send_msg)
+        smtp.quit()
+        return True
+    except:
+        print 'failed to send a email.'
+        return False
     
 def start():
     email_param = get_email_param()
-    send_email(email_param)
-    print 'send ok'
+    if send_email(email_param):
+        print 'send ok'
     
 if __name__ == '__main__':
     start()
