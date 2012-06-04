@@ -2,7 +2,7 @@ STFE
 ====
 ### A simple CLI tool for sending a email. 
 
-####usage£º
+####usage:
 	$ python stfe.py -h
 	Usage:     Send the contents of a directory as a MIME message.
 		Usage: stfe.py [options]
